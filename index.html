@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Abe Likes Colors</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/stylish-portfolio.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Ravi+Prakash" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span> 
+            </button>
+          <a class="navbar-brand" href="#top" onclick=$("#menu-close").click();>Abe Likes Colors</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                <a href="#about" onclick=$("#menu-close").click();>About</a>
+            </li>
+            <li>
+                <a href="sale.html" onclick=$("#menu-close").click();>Sale</a>
+            </li>
+            <li>
+                <a href="portfolio.html" onclick=$("#menu-close").click();>Portfolio</a>
+            </li>
+            <li>
+                <a target="_blank" href="https://teespring.com/stores/abelikescolors">Gear</a>
+            </li>
+            <li>
+                <a href="#instagram" onclick=$("#menu-close").click();>Contact</a>
+            </li>
+        </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Header -->
+    <header id="top" class="header">
+        <div class="text-vertical-center">
+            <h1>ABE LIKES COLORS</h1>
+            <h3>art by a. suskind</h3>
+            <br>
+            <a href="#about" class="btn btn-dark btn-lg">enjoy</a>
+        </div>
+    </header>
+
+    <!-- About -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Just a local San Francisco artist doing what he loves.</h2> <br>
+                    <p class="lead">If you end up loving my work as much as I do, consider <a target="_blank" href="https://www.etsy.com/people/abesuskind ">getting a piece for yourself</a>! <br> <br> Or if some gear is more your style, <a target="_blank" href="https://teespring.com/stores/abelikescolors">get some here</a>!</p>
+                </div>
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container -->
+    </section>
+
+    <!-- Callout -->
+    <aside class="callout">
+        <div class="text-vertical-center">
+            <h1>COLOR</h1>
+            <h1>is</h1>
+            <h1>LIFE</h1>
+        </div>
+    </aside>
+
+    <!-- Portfolio -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1 text-center">
+                    <h2>Expressions of my passion for color</h2>
+                    <hr class="small">
+                    <div class="row" id="portfolio-list">
+                    </div>
+                    <!-- /.row (nested) -->
+                    <a href="sale.html" class="btn btn-dark btn-lg">more</a>
+                </div>
+                <!-- /.col-lg-10 -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container -->
+    </section>
+
+    <!-- Call to Action -->
+    <div id="instagram">
+        <aside class="call-to-action bg-primary">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h3>Check out my Instagram for a peek into my life and art!</h3>
+                    <br>
+                    <a href="https://www.instagram.com/abelikescolors/" class="btn btn-lg btn-light">@abelikescolors</a>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+        <br>
+        <br>
+        <br>
+    <div class="row">
+        <div class="col-md-6 col-lg-offset-3">
+            <div>
+                <form action="mailto:cam.b.porter@gmail.com" method="post" enctype="text/plain">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="name">
+                                Name</label>
+                            <input type="text" class="form-control" id="name" placeholder="Enter name" required="required" />
+                        </div>
+                        <div class="form-group">
+                            <label for="email">
+                                Email Address</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span>
+                                </span>
+                                <input type="email" class="form-control" id="email" placeholder="Enter email" required="required" /></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">
+                                Subject</label>
+                            <select id="subject" name="subject" class="form-control" required="required">
+                                <option value="na" selected="">Choose One:</option>
+                                <option value="Commission a Painting">Commission a Painting</option>
+                                <option value="A Simple Question">A Simple Question</option>
+                                <option value="About Buying a Piece">About Buying a Piece</option>
+                                <option value="Concerning Shipping">Concerning Shipping</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="name">
+                                Message</label>
+                            <textarea name="message" id="message" class="form-control" rows="9" cols="25" required="required"
+                                placeholder="Message"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-primary pull-right" id="btnContactUs">
+                            Send Message</button>
+                    </div>
+                </div>
+                </form>
+            </div>
+            <br>
+        <br>
+        <br>
+        </div>
+    </div>
+</div>
+        </aside>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/3.6.0/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyDbOjTkdEv47YhYTdhVZ_rbgVXem-Zoebg",
+        authDomain: "abe-likes-colors.firebaseapp.com",
+        databaseURL: "https://abe-likes-colors.firebaseio.com",
+        storageBucket: "abe-likes-colors.appspot.com",
+        messagingSenderId: "233862805816"
+      };
+      firebase.initializeApp(config);
+    </script>
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/3.6.0/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyDbOjTkdEv47YhYTdhVZ_rbgVXem-Zoebg",
+        authDomain: "abe-likes-colors.firebaseapp.com",
+        databaseURL: "https://abe-likes-colors.firebaseio.com",
+        storageBucket: "abe-likes-colors.appspot.com",
+        messagingSenderId: "233862805816"
+      };
+      firebase.initializeApp(config);
+    </script>
+
+    <!-- Custom Theme JavaScript -->
+    <script>
+
+
+
+    // fetch portfolio data from database and create elements
+    
+    function createPortfolioItem(name) {
+        var portfolioList = document.getElementById("portfolio-list");
+        var itemRow = document.createElement('div');
+        itemRow.className = 'col-md-6 col-md-offset-3';
+        var innerDiv = document.createElement('div');
+        innerDiv.className = 'portfolio-item';
+        var itemLink = document.createElement('a');
+        var url = 'portfolio/portfolio-item.html?id='
+        itemLink.href = url + name;
+        var itemImage = document.createElement('img');
+        itemImage.className = 'img-portfolio img-responsive';
+        itemImage.title = name
+
+        var storage = firebase.storage();
+        var storageRef = storage.ref();
+        var imageRef = storageRef.child("portfolio/" + name + ".jpg");
+        imageRef.getDownloadURL().then(function(url) {
+            itemImage.src = url;
+        });
+
+        var br = document.createElement
+
+        portfolioList.appendChild(itemRow);
+        itemRow.appendChild(innerDiv);
+        innerDiv.appendChild(itemLink);
+        itemLink.appendChild(itemImage);
+
+
+    }
+
+    var numberOfItemsLoaded = 0
+    function loadMorePortfolioItems(numberOfItems) {
+        var portfolioRef = firebase.database().ref('portfolio').orderByChild('price').equalTo(350);
+        numberOfItemsLoaded = numberOfItemsLoaded + numberOfItems;
+        portfolioRef.on('child_added', function(snapshot) {
+            var name  = snapshot.key
+            createPortfolioItem(name);
+        });
+    }
+
+    loadMorePortfolioItems(1)
+
+    // Scrolls to the selected menu item on the page
+    $(function() {
+        $('a[href*=#]:not([href=#],[data-toggle],[data-target],[data-slide])').click(function() {
+            if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
+                var target = $(this.hash);
+                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                if (target.length) {
+                    $('html,body').animate({
+                        scrollTop: target.offset().top
+                    }, 1000);
+                    return false;
+                }
+            }
+        });
+    });
+    //#to-top button appears after scrolling
+    var fixed = false;
+    $(document).scroll(function() {
+        if ($(this).scrollTop() > 250) {
+            if (!fixed) {
+                fixed = true;
+                // $('#to-top').css({position:'fixed', display:'block'});
+                $('#to-top').show("slow", function() {
+                    $('#to-top').css({
+                        position: 'fixed',
+                        display: 'block'
+                    });
+                });
+            }
+        } else {
+            if (fixed) {
+                fixed = false;
+                $('#to-top').hide("slow", function() {
+                    $('#to-top').css({
+                        display: 'none'
+                    });
+                });
+            }
+        }
+    });
+    </script>
+
+</body>
+
+</html>

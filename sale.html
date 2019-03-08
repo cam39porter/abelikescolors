@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Abe Likes Colors</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/stylish-portfolio.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Ravi+Prakash" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span> 
+            </button>
+          <a class="navbar-brand" href="#top" onclick=$("#menu-close").click();>Abe Likes Colors</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                <a href="#about" onclick=$("#menu-close").click();>About</a>
+            </li>
+            <li>
+                <a href="sale.html" onclick=$("#menu-close").click();>Sale</a>
+            </li>
+            <li>
+                <a href="portfolio.html" onclick=$("#menu-close").click();>Portfolio</a>
+            </li>
+            <li>
+                <a target="_blank" href="https://teespring.com/stores/abelikescolors">Gear</a>
+            </li>
+            <li>
+                <a href="#instagram" onclick=$("#menu-close").click();>Contact</a>
+            </li>
+        </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <!-- Page Heading -->
+        <br>
+        <br>
+        <div class="row">
+            <div class="col-lg-10 col-lg-offset-1 text-center">
+                <h1 class="page-header">Abe Likes Colors
+                    <small>Sale</small>
+                </h1>
+                <h3>If some gear is more your style, <a target="_blank" href="https://teespring.com/stores/abelikescolors">get some here</a>!</h3>
+                <hr>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <!-- Project One -->
+        <div class="row">
+            <div class="col-lg-10 col-lg-offset-1" id='portfolio-list'>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; a. suskind</p>
+                </div>
+            </div>
+            <!-- /.row -->
+        </footer>
+
+    </div>
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/3.6.0/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyDbOjTkdEv47YhYTdhVZ_rbgVXem-Zoebg",
+        authDomain: "abe-likes-colors.firebaseapp.com",
+        databaseURL: "https://abe-likes-colors.firebaseio.com",
+        storageBucket: "abe-likes-colors.appspot.com",
+        messagingSenderId: "233862805816"
+      };
+      firebase.initializeApp(config);
+    </script>
+
+    <!-- Custom Theme JavaScript -->
+    <script>
+
+
+
+    // fetch portfolio data from database and create elements
+    
+    function createPortfolioItem(name) {
+        var portfolioList = document.getElementById("portfolio-list");
+        var itemRow = document.createElement('div');
+        itemRow.className = 'text-center col-md-6 col-md-offset-3';
+        var innerDiv = document.createElement('div');
+        innerDiv.className = 'portfolio-item';
+        var itemLink = document.createElement('a');
+        var url = 'portfolio/portfolio-item.html?id='
+        itemLink.href = url + name;
+        var itemImage = document.createElement('img');
+        itemImage.className = 'img-portfolio img-responsive';
+        var itemName = document.createElement('h4');
+        itemName.innerHTML = name.replace(/_/g, ' ');
+        var hr = document.createElement('hr')
+
+        var storage = firebase.storage();
+        var storageRef = storage.ref();
+        var imageRef = storageRef.child("portfolio/" + name + ".jpg");
+        imageRef.getDownloadURL().then(function(url) {
+            itemImage.src = url;
+        });
+
+        var br = document.createElement
+
+        portfolioList.appendChild(itemRow);
+        itemRow.appendChild(innerDiv);
+        innerDiv.appendChild(itemLink);
+        itemLink.appendChild(itemImage);
+        innerDiv.appendChild(itemName);
+        itemRow.appendChild(hr);
+
+    }
+
+    var numberOfItemsLoaded = 0
+    function loadMorePortfolioItems(numberOfItems) {
+        var portfolioRef = firebase.database().ref('portfolio').orderByChild('image');
+        numberOfItemsLoaded = numberOfItemsLoaded + numberOfItems;
+        portfolioRef.on('child_added', function(snapshot) {
+            var name  = snapshot.key;
+            if (snapshot.val().price != 'sold') {
+                createPortfolioItem(name);
+            }
+        });
+    }
+
+    loadMorePortfolioItems(0)
+
+    // Closes the sidebar menu
+    $("#menu-close").click(function(e) {
+        e.preventDefault();
+        $("#sidebar-wrapper").toggleClass("active");
+    });
+    // Opens the sidebar menu
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#sidebar-wrapper").toggleClass("active");
+    });
+    // Scrolls to the selected menu item on the page
+    $(function() {
+        $('a[href*=#]:not([href=#],[data-toggle],[data-target],[data-slide])').click(function() {
+            if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
+                var target = $(this.hash);
+                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                if (target.length) {
+                    $('html,body').animate({
+                        scrollTop: target.offset().top
+                    }, 1000);
+                    return false;
+                }
+            }
+        });
+    });
+    //#to-top button appears after scrolling
+    var fixed = false;
+    $(document).scroll(function() {
+        if ($(this).scrollTop() > 250) {
+            if (!fixed) {
+                fixed = true;
+                // $('#to-top').css({position:'fixed', display:'block'});
+                $('#to-top').show("slow", function() {
+                    $('#to-top').css({
+                        position: 'fixed',
+                        display: 'block'
+                    });
+                });
+            }
+        } else {
+            if (fixed) {
+                fixed = false;
+                $('#to-top').hide("slow", function() {
+                    $('#to-top').css({
+                        display: 'none'
+                    });
+                });
+            }
+        }
+    });
+    </script>
+
+</body>
+
+</html>
